@@ -1,0 +1,51 @@
+AI Visual Inspection
+👤 Person 1 -  Tunji — Set the Scene: Problem, Audience & Motivation
+
+“Imagine you own a warehouse that processes thousands of packages every day.
+Recently, customers have started reporting that some of their packages are arriving damaged.
+You know there's a problem, but you don't really know how often it's happening, which shipments 
+are having the most issues, or where the problem is coming from.
+Now, you could have employees manually inspect every package, but when you're dealing with thousands 
+of packages a day, that takes a lot of time, and there's always a chance that something gets missed.
+And this isn't just a problem for warehouses. Companies in manufacturing, shipping, retail, food 
+production, and other industries all rely on visual inspections to maintain quality.
+So that's the problem we're trying to solve.
+We want to find a way to make visual inspection faster, more consistent, and provide businesses 
+with information they can actually use.”
+
+Transition:
+“So, how do we plan on doing that?”
+
+👤 Person 2 - Marvin — The Idea & How It Works
+
+“Our idea is to build an AI-powered visual inspection and analytics system.
+For our proof of concept, we're going to focus on detecting damaged packages.
+Imagine a package moving down a conveyor belt. When it reaches an inspection point, a sensor 
+or controller detects the package and automatically triggers a fixed camera to capture an image.
+That image is sent to our cloud platform, where an AI computer-vision model analyzes it and 
+determines whether the package is acceptable or damaged.
+If damage is detected, the system can automatically generate an alert so someone can investigate 
+or remove that package.
+But we're not only interested in detecting one damaged box.
+Every inspection result is also recorded and sent to a real-time analytics dashboard, which is 
+where the system becomes even more useful.”
+
+Transition:
+“And that's where the bigger value of our project comes in.”
+
+👤 Person 3 - Fallou — Value, Market Opportunity & Bigger Vision
+
+“Now, let's go back to that warehouse owner.
+Instead of just knowing that a damaged package was found, the owner can open the dashboard 
+and start seeing patterns.
+Maybe the dashboard shows that 15% of packages from a particular shipment were damaged.
+Now the system isn't just telling you that one box is damaged. It's giving you information 
+that can help you investigate what's happening, identify trends, and make better operational decisions.
+And while we're using damaged packages as our proof of concept, our idea isn't limited to boxes.
+The same architecture could eventually support different AI models for manufacturing defect detection, 
+food-quality inspection, equipment inspection, agricultural inspection, and other situations where visual 
+inspection is important.
+That's the market opportunity we see: creating a reusable AI inspection platform rather than building a 
+system that only solves one specific inspection problem.
+Our overall idea is simple: capture an image, let AI inspect it, and turn that inspection into useful information 
+that businesses can actually act on.”
