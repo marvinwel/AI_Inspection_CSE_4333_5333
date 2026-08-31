@@ -1,4 +1,4 @@
-# ***NAME***: AI-Powered Visual Inspection System
+# ***AI Inspector***: AI-Powered Visual Inspection System
 
 **Group Members:** 
 - Marvin Wellington 
