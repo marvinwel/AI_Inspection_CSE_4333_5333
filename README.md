@@ -9,7 +9,7 @@
 
 ### 🔍 WHAT — The Problem & Our Solution
 
-Visual inspection is an important part of quality control in industries such as manufacturing, logistics, retail, agriculture, and food production. Many inspections are performed manually, which can be time-consuming, inconsistent, and difficult to scale. Our project, ***NAME***, proposes a cloud-based AI visual inspection system that uses computer vision to automatically analyze images and identify potential defects, damage, or other undesirable conditions.
+Visual inspection is an important part of quality control in industries such as manufacturing, logistics, retail, agriculture, and food production. Many inspections are performed manually, which can be time-consuming, inconsistent, and difficult to scale. Our project, ***AI Inspector***, proposes a cloud-based AI visual inspection system that uses computer vision to automatically analyze images and identify potential defects, damage, or other undesirable conditions.
 
 ### How It Works
 
@@ -26,7 +26,7 @@ For our initial proof of concept, we will train the system to inspect packages a
 ---
 
 ###  👥 WHO — Target Audience
-***NAME*** is intended for organizations that perform repetitive visual inspections, including:
+***AI Inspector*** is intended for organizations that perform repetitive visual inspections, including:
 
 - 🏭 Manufacturing companies
 - 🏢 Warehouses and distribution centers
@@ -53,7 +53,7 @@ Instead of relying entirely on human observation, an AI model can provide **fast
 ---
 ### 🚀 VALUE — Beyond a Single Inspection
 
-***NAME*** demonstrates how multiple technologies can work together as one complete inspection platform:
+***AI Inspector*** demonstrates how multiple technologies can work together as one complete inspection platform:
 
 - 🤖 Artificial Intelligence
 - 👁️ Computer Vision
