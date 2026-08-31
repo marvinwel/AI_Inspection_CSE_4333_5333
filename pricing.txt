@@ -1,0 +1,12 @@
+AWS Sage Maker Ai Pricing:
+    Amazon SageMaker AI capability	            Free Tier usage per month for the first 2 months
+    Studio notebooks, and notebook instances	250 hours of ml.t3.medium instance on Studio notebooks OR ml.t3.medium instance on notebook instances
+    RStudio on SageMaker	                    250 hours of ml.t3.medium instance on RSession app AND free ml.t3.medium instance for RStudioServerPro app
+    Data Wrangler	                            25 hours of ml.m5.4xlarge instance
+    Feature Store	                            10 million write units, 10 million read units, 25 GB storage (standard online store)
+    Training	                                50 hours of m4.xlarge or m5.xlarge instances
+    Amazon SageMaker with TensorBoard	        300 hours of ml.r5.large instance
+    Real-Time Inference	                        125 hours of m4.xlarge or m5.xlarge instances
+    Serverless Inference	                    150,000 seconds of on-demand inference duration
+    Canvas	                                    160 hours/month for session time
+    HyperPod	                                50 hours of m5.xlarge instance
