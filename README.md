@@ -1,31 +1,31 @@
 # ***AI Inspector*** : AI-Powered Visual Inspection System
 
-## Architecture Diagram
+## <p align="center">Architecture Diagram</p>
 ![AI Inspector Architecture](architecture_diagram.jpeg)
 
 
 
 ---
 
-### 🔍 WHAT — The Problem & Our Solution
+### <p align="center">🔍 WHAT — The Problem & Our Solution</p>
 
 Visual inspection is an important part of quality control in industries such as manufacturing, logistics, retail, agriculture, and food production. Many inspections are performed manually, which can be time-consuming, inconsistent, and difficult to scale. Our project, ***AI Inspector***, proposes a cloud-based AI visual inspection system that uses computer vision to automatically analyze images and identify potential defects, damage, or other undesirable conditions.
 
-### How It Works
+### <p align="center">How It Works</p>
 
 
 The system will allow an image to be captured from a mobile application and submitted to a cloud-based backend for AI inference. The trained model will classify the image and return an inspection result. Based on the result, the system can generate notifications and display inspection information on a real-time web dashboard.
 
 > 📱 **Capture Image** → ☁️ **Cloud Processing** → 🤖 **AI Inspection** → 📊 **Real-Time Results** → 🔔 **Notification**
 
-### 📦 Proof of Concept: Package Damage Detection
+### <p align="center">📦 Proof of Concept: Package Damage Detection</p>
 
 For our initial proof of concept, we will train the system to inspect packages and classify them as ⚠️ **DAMAGED** or ✅ **ACCEPTABLE**. Package inspection is only the demonstration use case; the overall architecture is intended to support additional AI inspection applications by using models trained for different inspection tasks.
 
 
 ---
 
-###  👥 WHO — Target Audience
+###  <p align="center">👥 WHO — Target Audience</p>
 ***AI Inspector*** is intended for organizations that perform repetitive visual inspections, including:
 
 - 🏭 Manufacturing companies
@@ -40,7 +40,7 @@ For our initial proof of concept, we will train the system to inspect packages a
 
 ---
 
-### 💡 WHY — Motivation
+### <p align="center">💡 WHY — Motivation</p>
 
 Imagine a warehouse processing **thousands of packages every day**.
 
@@ -51,7 +51,7 @@ AI-assisted inspection provides an opportunity to automate part of this process.
 Instead of relying entirely on human observation, an AI model can provide **fast, repeatable, and measurable inspection results**, while employees focus their attention on items requiring further review.
 
 ---
-### 🚀 VALUE — Beyond a Single Inspection
+### <p align="center">🚀 VALUE — Beyond a Single Inspection</p>
 
 ***AI Inspector*** demonstrates how multiple technologies can work together as one complete inspection platform:
 
