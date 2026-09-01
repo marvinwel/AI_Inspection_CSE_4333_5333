@@ -83,8 +83,8 @@ The initial package-damage use case will demonstrate the concept by identifying 
 
 
 ### Project Management tool: 
-    Trello
+- Trello
 ### UI Design ProtoType:
-    Figma
+- Figma
 ### Architecture Diagram
-    lucid
+- Lucid
