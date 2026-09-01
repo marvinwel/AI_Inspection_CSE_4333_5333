@@ -1,12 +1,9 @@
 # ***AI Inspector*** : AI-Powered Visual Inspection System
 
+## Architecture Diagram
+![AI Inspector Architecture](architecture_diagram.jpeg)
 
 
-**Group Members:** 
-- Marvin Wellington 
-- Fallou Samb
-- Tunji Oluwataki
-- Abel Sanchez
 
 ---
 
@@ -77,6 +74,12 @@ The initial package-damage use case will demonstrate the concept by identifying 
 - 📦 Product quality control
 - 🌱 Agricultural inspection
 - 🔍 Other visual inspection tasks
+
+**Group Members:** 
+- Marvin Wellington Marvinwel@yahoo.com
+- Fallou Samb
+- Tunji Oluwataki
+- Abel Sanchez
 
 
 ### Project Management tool: 
