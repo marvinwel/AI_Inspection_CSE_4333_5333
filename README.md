@@ -1,9 +1,12 @@
-# ***AI Inspector***: AI-Powered Visual Inspection System
+# ***AI Inspector*** : AI-Powered Visual Inspection System
+
+
 
 **Group Members:** 
 - Marvin Wellington 
 - Fallou Samb
 - Tunji Oluwataki
+- Abel Sanchez
 
 ---
 
@@ -75,3 +78,10 @@ The initial package-damage use case will demonstrate the concept by identifying 
 - 🌱 Agricultural inspection
 - 🔍 Other visual inspection tasks
 
+
+### Project Management tool: 
+    Trello
+### UI Design ProtoType:
+    Figma
+### Architecture Diagram
+    lucid

@@ -1,14 +1,15 @@
-title: AI-Powered Visual Inspection System
+AI Inspector: AI-Powered Visual Inspection System
 
 Group Members: 
 - Marvin Wellington 
 - Fallou Samb
 - Tunji Oluwataki
+- Abel Sanchez
 
 What — Core Problem
 
 Visual inspection is an important part of quality control in industries such as manufacturing, logistics, retail, agriculture, and food production. 
-Many inspections are performed manually, which can be time-consuming, inconsistent, and difficult to scale. Our project, <NAME>, proposes a 
+Many inspections are performed manually, which can be time-consuming, inconsistent, and difficult to scale. Our project, AI Inspector, proposes a 
 cloud-based AI visual inspection system that uses computer vision to automatically analyze images and identify potential defects, damage, or 
 other undesirable conditions.
 
@@ -23,7 +24,7 @@ inspection tasks.
 
 Who — Target Audience
 
-<NAME> is intended for organizations that perform repetitive visual inspections, including manufacturing companies, warehouses, logistics and shipping 
+AI Inspector is intended for organizations that perform repetitive visual inspections, including manufacturing companies, warehouses, logistics and shipping 
 companies, retailers, food producers, and quality-control teams. The platform could also benefit smaller organizations that want to introduce automated 
 inspection without developing an entire computer-vision infrastructure from scratch.
 
@@ -35,7 +36,7 @@ provides an opportunity to automate part of this process. Instead of relying ent
 and measurable inspection results, while employees focus their attention on items requiring further review.
 
 
-<NAME> provides value by demonstrating how AI, computer vision, cloud computing, mobile applications, event-driven processing, notifications, and real-time 
+AI Inspector provides value by demonstrating how AI, computer vision, cloud computing, mobile applications, event-driven processing, notifications, and real-time 
 dashboards can work together as a complete inspection system. Instead of designing the solution around one specific object, the platform is designed as a 
 reusable architecture that can potentially support multiple inspection scenarios.
 
@@ -52,5 +53,8 @@ Marvin Wellington: Approved — I have reviewed and agree with the proposed proj
 Fallou Samb: Approved — I have reviewed and agree with the proposed project scope and objectives.
 
 Tunji Oluwataki: Approved — I have reviewed and agree with the proposed project scope and objectives.
+
+Abel Sanchez: Approved — I have reviewed and agree with the proposed project scope and objectives.
+
 
 Group Member 4: Approved — I have reviewed and agree with the proposed project scope and objectives.
