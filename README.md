@@ -86,5 +86,9 @@ The initial package-damage use case will demonstrate the concept by identifying 
 - Trello
 ### UI Design ProtoType:
 - Figma
+### <p align="center">Mobile UI Design</p>
+![Mobile UI Design](mobile_app_ui.png)
+### <p align="center">Dashboard UI Design</p>
+![Dashboard UI Design](dashboard_ui.png)
 ### Architecture Diagram
 - Lucid
