@@ -9,3 +9,12 @@ aws s3 sync ./images/ok \
   aws s3 ls s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/ \
   --recursive \
   --profile ai-inspector
+
+
+
+canvas_bucket_name = "sagemaker-canvas-797260139360-us-east-2"
+sagemaker_domain_id = "d-natufcguj3hr"
+sagemaker_execution_role_arn = "arn:aws:iam::797260139360:role/ai-inspector-sagemaker-execution-role"
+sagemaker_user_profile = "ai-inspector-user"
+training_damaged_s3_uri = "s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/damaged/"
+training_ok_s3_uri = "s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/"

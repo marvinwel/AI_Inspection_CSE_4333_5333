@@ -92,3 +92,5 @@ The initial package-damage use case will demonstrate the concept by identifying 
 ![Dashboard UI Design](dashboard_ui.png)
 ### Architecture Diagram
 - Lucid
+### Online App Development
+- https://snack.expo.dev/?platform=web 
