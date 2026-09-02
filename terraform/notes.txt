@@ -1,0 +1,11 @@
+aws s3 sync ./images/ok \
+  s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/ \
+  --profile ai-inspector
+
+  aws s3 sync ./images/damaged \
+  s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/damaged/ \
+  --profile ai-inspector
+
+  aws s3 ls s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/ \
+  --recursive \
+  --profile ai-inspector
