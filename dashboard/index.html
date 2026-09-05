@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Inspector Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⬡</div>
+        <div>AI <span>INSPECTOR</span></div>
+      </div>
+
+      <nav>
+        <a class="nav-item active" href="#">⌂ <span>Dashboard</span></a>
+        <a class="nav-item" href="#">▣ <span>Inspections</span></a>
+        <a class="nav-item" href="#">⌁ <span>Analytics</span></a>
+        <a class="nav-item" href="#">⚠ <span>Alerts</span></a>
+        <a class="nav-item" href="#">⚙ <span>Settings</span></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="avatar">MW</div>
+        <div>
+          <strong>Marvin W.</strong>
+          <small>QC Manager</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Real-time overview of inspection activities</p>
+        </div>
+
+        <div class="live-status">
+          <span id="socketDot" class="status-dot offline"></span>
+          <span id="socketStatus">Connecting...</span>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-icon blue">⬡</div>
+          <div>
+            <span>Total Inspections</span>
+            <strong id="totalCount">0</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon green">✓</div>
+          <div>
+            <span>OK</span>
+            <strong id="okCount">0</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon red">!</div>
+          <div>
+            <span>Damaged</span>
+            <strong id="damagedCount">0</strong>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon purple">◆</div>
+          <div>
+            <span>Avg. Confidence</span>
+            <strong id="avgConfidence">0%</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Recent Inspections</h2>
+            <p>Newest inspections appear automatically through WebSocket.</p>
+          </div>
+          <span class="badge">LIVE</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Result</th>
+                <th>Confidence</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="inspectionRows"></tbody>
+          </table>
+
+          <div id="emptyState" class="empty-state">
+            Waiting for inspections...
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
