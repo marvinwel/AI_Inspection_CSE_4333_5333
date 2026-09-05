@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "AI Inspector",
+    "slug": "ai-inspector-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow AI Inspector to use your camera for package inspections."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow AI Inspector to select package images for inspection."
+        }
+      ],
+      "expo-asset",
+      "expo-status-bar",
+      "expo-font"
+    ],
+    "android": {
+      "permissions": [
+        "CAMERA"
+      ]
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow AI Inspector to use your camera for package inspections.",
+        "NSPhotoLibraryUsageDescription": "Allow AI Inspector to select package images for inspection."
+      }
+    }
+  }
+}

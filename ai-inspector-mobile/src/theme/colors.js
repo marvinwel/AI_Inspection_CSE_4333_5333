@@ -1,0 +1,18 @@
+export const colors = {
+  navy: '#07162D',
+  navy2: '#0D213B',
+  navy3: '#142A45',
+  purple: '#6D39E8',
+  purpleLight: '#A47DFF',
+  purpleSoft: '#EEE8FF',
+  white: '#FFFFFF',
+  background: '#F4F6FA',
+  text: '#111827',
+  muted: '#6B7280',
+  border: '#E5E7EB',
+  green: '#1CAD62',
+  greenSoft: '#E7F8EE',
+  red: '#F22E2E',
+  redSoft: '#FFE8E8',
+  yellow: '#F6B73C',
+};
