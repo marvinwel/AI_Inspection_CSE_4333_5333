@@ -1,15 +1,28 @@
-aws s3 sync ./images/ok \
-  s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/ \
+aws s3 sync ./data-pics/good s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/ 
   --profile ai-inspector
 
-  aws s3 sync ./images/damaged \
-  s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/damaged/ \
+  aws s3 sync ./data-pics/damaged s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/damaged/ \
   --profile ai-inspector
 
   aws s3 ls s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/ \
   --recursive \
   --profile ai-inspector
 
+download images command:
+aws s3 sync s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ ./ 
+
+
+format image to jpeg :
+ sips -s format jpeg /Users/marvinwellington/Downloads/IMG_9517.HEIC --out /Users/marvinwellington/uta/cse_4333_5333/data-pics/test-images/test2.jpeg  
+
+
+
+Test endpoint:
+aws sagemaker-runtime invoke-endpoint --endpoint-name canvas-new-deployment-09-03-2026-2-35-AM --content-type image/jpeg --body fileb://./data-pics/test-images/test2.jpeg --region us-east-2 output.json
+
+s3 location for model:
+Model artifact:
+s3://sagemaker-us-east-2-797260139360/Canvas/ai-inspector-user/Training/output/Canvas1788419276633/Canvas1788419276633-ModelTraining-1-0b21eb3aa6ef4b25af76c910963/output/model.tar.gz
 
 
 canvas_bucket_name = "sagemaker-canvas-797260139360-us-east-2"
@@ -18,3 +31,25 @@ sagemaker_execution_role_arn = "arn:aws:iam::797260139360:role/ai-inspector-sage
 sagemaker_user_profile = "ai-inspector-user"
 training_damaged_s3_uri = "s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/damaged/"
 training_ok_s3_uri = "s3://sagemaker-canvas-797260139360-us-east-2/datasets/boxes/ok/"
+
+
+
+
+
+docker run -dit  -p 8080:8080 -v /Users/marvinwellington/uta/cse_4333_5333/data-pics/ai-model/model:/opt/ml/model --name ai-inspector marvin89repo/ai-inspector:latest 
+
+curl http:localhost:8080/ping
+
+curl -X POST -H "Content-type: image/jpeg --data-binary "
+
+curl -X POST \
+  -F "file=@/Users/marvinwellington/uta/cse_4333_5333/data-pics/test-images/test1.jpeg" \
+  http://localhost:8080/invocations
+
+
+  curl -X POST \
+  -H "Content-Type: image/jpeg" \
+  --data-binary "@/Users/marvinwellington/uta/cse_4333_5333/data-pics/test-images/test1.jpeg" \
+  http://localhost:8080/invocations
+
+  docker info | grep -i "Total Memory"
