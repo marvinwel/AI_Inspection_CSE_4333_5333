@@ -1,0 +1,38 @@
+# AI Inspector: AI-Powered Visual Inspection System
+
+**Group Members:**
+- Marvin Wellington
+- Fallou Samb
+- Tunji Oluwataki
+- Abel Sanchez
+
+## What — Core Problem
+
+Visual inspection is an important part of quality control in industries such as manufacturing, logistics, retail, agriculture, and food production. Many inspections are performed manually, which can be time-consuming, inconsistent, and difficult to scale. Our project, AI Inspector, proposes a cloud-based AI visual inspection system that uses computer vision to automatically analyze images and identify potential defects, damage, or other undesirable conditions.
+
+The system will allow an image to be captured from a mobile application and submitted to a cloud-based backend for AI inference. The trained model will classify the image and return an inspection result. Based on the result, the system can generate notifications and display inspection information on a real-time web dashboard.
+
+For our initial proof of concept, we will train the system to inspect packages and classify them as damaged or acceptable. Package inspection is only the demonstration use case; the overall architecture is intended to support additional AI inspection applications by using models trained for different inspection tasks.
+
+## Who — Target Audience
+
+AI Inspector is intended for organizations that perform repetitive visual inspections, including manufacturing companies, warehouses, logistics and shipping companies, retailers, food producers, and quality-control teams. The platform could also benefit smaller organizations that want to introduce automated inspection without developing an entire computer-vision infrastructure from scratch.
+
+## Why — Motivation and Value
+
+Imagine a warehouse processing thousands of packages every day. Employees must identify crushed, opened, or otherwise damaged packages before they continue through the operation. As volume increases, manually inspecting every item becomes difficult to perform quickly and consistently. AI-assisted inspection provides an opportunity to automate part of this process. Instead of relying entirely on human observation, an AI model can provide fast, repeatable, and measurable inspection results, while employees focus their attention on items requiring further review.
+
+AI Inspector provides value by demonstrating how AI, computer vision, cloud computing, mobile applications, event-driven processing, notifications, and real-time dashboards can work together as a complete inspection system. Instead of designing the solution around one specific object, the platform is designed as a reusable architecture that can potentially support multiple inspection scenarios.
+
+The initial package-damage use case will demonstrate the concept by identifying damaged packages and automatically reporting the inspection result. In the future, the same approach could be adapted for applications such as manufacturing defect detection, food-quality inspection, equipment inspection, and other visual quality-control tasks.
+
+## Group Agreement
+
+All group members have reviewed this proposal and agree with the proposed project scope and direction.
+
+| Member | Status |
+|--------|--------|
+| Marvin Wellington | Approved — I have reviewed and agree with the proposed project scope and objectives. |
+| Fallou Samb | Approved — I have reviewed and agree with the proposed project scope and objectives. |
+| Tunji Oluwataki | Approved — I have reviewed and agree with the proposed project scope and objectives. |
+| Abel Sanchez | Approved — I have reviewed and agree with the proposed project scope and objectives. |
