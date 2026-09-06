@@ -21,3 +21,6 @@ Thumbs.db
 # Expo / build output
 dist/
 web-build/
+# Ignore image/data directory
+data-pics/
+notes.txt

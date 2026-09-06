@@ -240,5 +240,3 @@ resource "aws_sagemaker_app" "canvas" {
   app_name = "default"
   app_type = "Canvas"
 }
-
-
