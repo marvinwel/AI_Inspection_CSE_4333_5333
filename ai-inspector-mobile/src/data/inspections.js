@@ -1,0 +1,47 @@
+export const inspections = [
+  {
+    id: 'INS-10025',
+    result: 'DAMAGED',
+    confidence: 97,
+    date: 'Aug 31, 9:32 AM',
+    category: 'Shipping Box',
+    size: 'Medium',
+    image: require('../../assets/box-damaged.png'),
+  },
+  {
+    id: 'INS-10024',
+    result: 'OK',
+    confidence: 98,
+    date: 'Aug 31, 9:28 AM',
+    category: 'Shipping Box',
+    size: 'Medium',
+    image: require('../../assets/box-ok.png'),
+  },
+  {
+    id: 'INS-10023',
+    result: 'OK',
+    confidence: 95,
+    date: 'Aug 31, 9:21 AM',
+    category: 'Shipping Box',
+    size: 'Medium',
+    image: require('../../assets/box-camera.png'),
+  },
+  {
+    id: 'INS-10022',
+    result: 'DAMAGED',
+    confidence: 96,
+    date: 'Aug 31, 9:15 AM',
+    category: 'Shipping Box',
+    size: 'Medium',
+    image: require('../../assets/box-damaged.png'),
+  },
+  {
+    id: 'INS-10021',
+    result: 'OK',
+    confidence: 98,
+    date: 'Aug 31, 9:10 AM',
+    category: 'Shipping Box',
+    size: 'Medium',
+    image: require('../../assets/box-ok.png'),
+  }
+];
