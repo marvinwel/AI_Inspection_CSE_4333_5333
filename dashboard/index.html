@@ -50,6 +50,7 @@
           <div>
             <span>Total Inspections</span>
             <strong id="totalCount">0</strong>
+            <small id="totalPercent" class="stat-percent total-percent">100.0%</small>
           </div>
         </article>
 
@@ -58,6 +59,7 @@
           <div>
             <span>OK</span>
             <strong id="okCount">0</strong>
+            <small id="okPercent" class="stat-percent ok-percent">0.0%</small>
           </div>
         </article>
 
@@ -66,6 +68,7 @@
           <div>
             <span>Damaged</span>
             <strong id="damagedCount">0</strong>
+            <small id="damagedPercent" class="stat-percent damaged-percent">0.0%</small>
           </div>
         </article>
 
@@ -78,11 +81,23 @@
         </article>
       </section>
 
+      <section class="panel trend-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Inspection Trend</h2>
+            <p>Daily OK vs. damaged inspections from loaded history and live updates.</p>
+          </div>
+          <span class="badge">7 DAYS</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="inspectionTrendChart"></canvas>
+        </div>
+      </section>
+
       <section class="panel">
         <div class="panel-header">
           <div>
             <h2>Recent Inspections</h2>
-            <p>Newest inspections appear automatically through WebSocket.</p>
           </div>
           <span class="badge">LIVE</span>
         </div>
@@ -109,6 +124,7 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

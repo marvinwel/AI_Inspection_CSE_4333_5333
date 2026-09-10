@@ -365,3 +365,34 @@ tbody tr:hover {
     flex-direction: column;
   }
 }
+
+
+/* Dashboard statistic percentages */
+.stat-percent {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.total-percent { color: #9cabe0; }
+.ok-percent { color: var(--green); }
+.damaged-percent { color: var(--red); }
+
+/* Inspection trend */
+.trend-panel {
+  margin-bottom: 22px;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 340px;
+  padding: 20px 22px 24px;
+}
+
+@media (max-width: 650px) {
+  .chart-wrap {
+    height: 280px;
+    padding: 14px;
+  }
+}
