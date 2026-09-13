@@ -81,7 +81,7 @@ export async function fetchInspections() {
       hour: 'numeric',
       minute: '2-digit',
     }),
-
     imageKey: item.imageKey,
+    imageUri: item.imageUrl,
   }));
 }
