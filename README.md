@@ -1,7 +1,7 @@
 # ***AI Inspector*** : AI-Powered Visual Inspection System
 
 ## <p align="center">Architecture Diagram</p>
-![AI Inspector Architecture](architecture_diagram.jpeg)
+![AI Inspector Architecture](assets/Architecture_diagram.png)
 
 
 
@@ -87,9 +87,9 @@ The initial package-damage use case will demonstrate the concept by identifying 
 ### UI Design ProtoType:
 - Figma
 ### <p align="center">Mobile UI Design</p>
-![Mobile UI Design](mobile_app_ui.png)
+![Mobile UI Design](assets/mobile_app_ui.png)
 ### <p align="center">Dashboard UI Design</p>
-![Dashboard UI Design](dashboard_ui.png)
+![Dashboard UI Design](assets/dashboard_ui.png)
 ### Architecture Diagram
 - Lucid
 ### Online App Development
