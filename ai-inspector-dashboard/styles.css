@@ -396,3 +396,156 @@ tbody tr:hover {
     padding: 14px;
   }
 }
+/* Login: hide the dashboard until the user is signed in */
+body.auth-pending .app-shell {
+  visibility: hidden;
+}
+
+.logout-btn {
+  margin-top: 8px;
+  padding: 5px 10px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: var(--text);
+  border-color: #3552d7;
+}
+
+@media (max-width: 1000px) {
+  .logout-btn { display: none; }
+}
+
+/* ===== Mobile fixes ===== */
+
+/* Let the main column shrink so wide tables scroll inside their panel
+   instead of making the whole page wider than the screen. */
+.main-content {
+  min-width: 0;
+}
+
+/* Keep table cells on one line; the table scrolls sideways inside its panel. */
+tbody td,
+thead th {
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  /* Tablets and phones: sidebar becomes a compact top bar */
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  nav {
+    display: none; /* nav links are placeholders for now */
+  }
+
+  .sidebar-footer {
+    margin-top: 0;
+    margin-left: auto;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .sidebar-footer > div:last-child {
+    display: block;
+  }
+
+  .sidebar-footer strong,
+  .sidebar-footer small {
+    display: none;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand div:last-child {
+    display: block;
+  }
+
+  .logout-btn {
+    display: inline-block;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  /* Header */
+  h1 {
+    font-size: 26px;
+  }
+
+  /* Stat cards: 2 per row, more compact */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-card {
+    min-height: 0;
+    padding: 14px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stat-card strong {
+    font-size: 24px;
+  }
+
+  .stat-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    font-size: 18px;
+  }
+
+  .panel-header {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .panel-header h2 {
+    font-size: 20px;
+  }
+
+  tbody td,
+  thead th {
+    padding: 12px;
+  }
+
+  .thumb {
+    width: 46px;
+    height: 46px;
+  }
+}

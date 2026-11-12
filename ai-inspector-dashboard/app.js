@@ -243,11 +243,22 @@ function extractInspectionArray(payload) {
 
 async function fetchPreviousInspections() {
   try {
+    const token = await Auth.getValidIdToken();
+    if (!token) return Auth.login();
+
     const response = await fetch(FETCH_DATA_URL, {
       method: "GET",
-      headers: { Accept: "application/json" },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       cache: "no-store",
     });
+
+    if (response.status === 401 || response.status === 403) {
+      Auth.login(); // token missing/expired -> back to login
+      return;
+    }
 
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
@@ -383,12 +394,21 @@ function setSocketStatus(connected) {
   socketStatus.textContent = connected ? "Live Updates On" : "Disconnected";
 }
 
-function connectWebSocket() {
+async function connectWebSocket() {
   clearTimeout(reconnectTimer);
+
+  // Gets a valid token, renewing it silently if it expired (e.g. tab open > 1 hour).
+  const token = await Auth.getValidIdToken();
+  if (!token) {
+    Auth.login();
+    return;
+  }
 
   socketStatus.textContent = "Connecting...";
 
-  socket = new WebSocket(WS_URL);
+  // Browsers can't set headers on WebSockets, so the token goes in the query string.
+  // The $connect Lambda authorizer reads it from there.
+  socket = new WebSocket(`${WS_URL}?token=${encodeURIComponent(token)}`);
 
   socket.onopen = () => {
     console.log("WebSocket connected");
@@ -423,11 +443,36 @@ function connectWebSocket() {
   };
 }
 
-renderRows();
-updateStats();
-updateTrendChart();
-fetchPreviousInspections();
-connectWebSocket();
+function showSignedInUser(user) {
+  const nameEl = document.getElementById("userName");
+  const avatarEl = document.getElementById("userAvatar");
+  const name = user.name || user.email || user["cognito:username"] || "User";
+
+  if (nameEl) nameEl.textContent = name;
+  if (avatarEl) {
+    avatarEl.textContent = name
+      .split(/[\s@._-]+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0].toUpperCase())
+      .join("");
+  }
+
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) logoutBtn.addEventListener("click", Auth.logout);
+}
+
+// Start the dashboard only after the user is signed in.
+Auth.requireLogin().then((user) => {
+  document.body.classList.remove("auth-pending");
+  showSignedInUser(user);
+
+  renderRows();
+  updateStats();
+  updateTrendChart();
+  fetchPreviousInspections();
+  connectWebSocket();
+});
 
 // Optional demo data. Uncomment to test the UI without AWS.
 //
