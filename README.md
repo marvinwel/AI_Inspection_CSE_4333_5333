@@ -1,8 +1,10 @@
 # ***AI Inspector*** : AI-Powered Visual Inspection System
 
-## <p align="center">Architecture Diagram</p>
+# <p align="center">Architecture Diagram</p>
+### <p align="center">Classify Image + Dashboard real time update</p>
 ![AI Inspector Architecture](assets/Architecture_diagram.png)
-
+### <p align="center">Fetch Previous Inspections for App</p>
+![AI Inspector Architecture](assets/fetch-data.png)
 
 
 ---
@@ -88,6 +90,10 @@ The initial package-damage use case will demonstrate the concept by identifying 
 - Figma
 ### <p align="center">Mobile UI Design</p>
 ![Mobile UI Design](assets/mobile_app_ui.png)
+
+### <p align="center">Dashboard Login Page</p>
+![Dashboard UI Design](assets/Login-page.png)
+
 ### <p align="center">Dashboard UI Design</p>
 ![Dashboard UI Design](assets/dashboard_ui.png)
 ### Architecture Diagram
