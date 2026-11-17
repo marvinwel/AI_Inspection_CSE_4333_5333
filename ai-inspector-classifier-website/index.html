@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#07162D" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>AI Inspector</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body class="auth-pending">
+
+  <!-- Icon set (used with <svg><use href="#i-name"/></svg>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" fill="currentColor"/></symbol>
+    <symbol id="i-time" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M9 4h6l1.6 2.2H20a1 1 0 0 1 1 1V19a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7.2a1 1 0 0 1 1-1h3.4z" fill="currentColor"/><circle cx="12" cy="13" r="4" fill="#fff"/><circle cx="12" cy="13" r="2.4" fill="currentColor"/></symbol>
+    <symbol id="i-stats" viewBox="0 0 24 24"><rect x="4" y="12" width="3.5" height="8" rx="1" fill="currentColor"/><rect x="10.25" y="7" width="3.5" height="13" rx="1" fill="currentColor"/><rect x="16.5" y="3" width="3.5" height="17" rx="1" fill="currentColor"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1.2-4 4.4-6 8-6s6.8 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="9.5" r="1.8" fill="currentColor"/><path d="m4 18 5-5 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 3 2 20h20z" fill="currentColor"/><path d="M12 9v5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="#fff"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7z" fill="currentColor" opacity=".9"/><path d="M3 7l9 5 9-5M12 12v10" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 9M20 4v5h-5M20 12a8 8 0 0 1-13.7 5.6L4 15M4 20v-5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-offline" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .6-8A6 6 0 0 0 6.2 9.3 4.4 4.4 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 4l16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <div class="app">
+
+    <!-- ================= HOME ================= -->
+    <section id="view-home" class="view" data-tab="home">
+      <header class="home-header">
+        <div class="logo">AI <span>INSPECTOR</span></div>
+      </header>
+
+      <div class="sheet">
+        <h1 class="greeting"><span id="greetingText">Good morning,</span></h1>
+        <div class="operator" id="homeName">Operator</div>
+        <p class="sub">Let's inspect and keep quality high.</p>
+
+        <div class="card overview">
+          <div class="overview-head">
+            <h2>Overview</h2>
+            <span class="muted small" id="todayDate"></span>
+          </div>
+          <div class="stats-row">
+            <div class="stat"><span class="stat-icon purple"><svg><use href="#i-cube"/></svg></span><strong id="homeTotal">–</strong><small>Inspected</small></div>
+            <div class="stat"><span class="stat-icon green"><svg><use href="#i-check"/></svg></span><strong id="homeGood">–</strong><small>Good</small></div>
+            <div class="stat"><span class="stat-icon red"><svg><use href="#i-warning"/></svg></span><strong id="homeDamaged">–</strong><small>Damaged</small></div>
+          </div>
+        </div>
+
+        <a class="new-card" href="#inspect">
+          <span class="new-title">New Inspection</span>
+          <span class="new-sub">Capture or upload an image</span>
+          <span class="camera-circle"><svg><use href="#i-camera"/></svg></span>
+          <span class="quick-row">
+            <span><svg><use href="#i-camera"/></svg> Camera</span>
+            <span><svg><use href="#i-image"/></svg> Gallery</span>
+          </span>
+        </a>
+
+        <div class="section-head">
+          <h2>Recent Inspections</h2>
+          <a href="#history">View all</a>
+        </div>
+        <div class="card list-card" id="recentList">
+          <div class="empty">Loading…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HISTORY ================= -->
+    <section id="view-history" class="view dark" data-tab="history" hidden>
+      <h1 class="page-title">History</h1>
+
+      <label class="search">
+        <svg><use href="#i-search"/></svg>
+        <input id="historySearch" type="search" placeholder="Search by ID or result…" autocomplete="off" />
+      </label>
+
+      <div class="pills" role="group" aria-label="Filter">
+        <button type="button" class="pill active" data-filter="all">All</button>
+        <button type="button" class="pill" data-filter="good">Good</button>
+        <button type="button" class="pill" data-filter="damaged">Damaged</button>
+      </div>
+
+      <div id="historyList" class="dark-list">
+        <div class="empty light">Loading inspections…</div>
+      </div>
+    </section>
+
+    <!-- ================= INSPECT ================= -->
+    <section id="view-inspect" class="view inspect" data-tab="inspect" hidden>
+      <div class="topbar">
+        <a href="#home" class="icon-btn" aria-label="Back"><svg><use href="#i-back"/></svg></a>
+        <h1>New Inspection</h1>
+        <span class="icon-btn"></span>
+      </div>
+
+      <div class="viewfinder">
+        <video id="cameraVideo" playsinline muted autoplay></video>
+        <img id="photoPreview" alt="Selected photo" hidden />
+
+        <!-- Shown when the live camera isn't available -->
+        <div id="cameraFallback" class="camera-fallback" hidden>
+          <span class="fallback-icon"><svg><use href="#i-camera"/></svg></span>
+          <p id="fallbackText">Take a photo of the box or choose one from your gallery.</p>
+        </div>
+
+        <div class="hint">Center the box<br />in the frame</div>
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+
+        <button type="button" id="flipBtn" class="float-btn" aria-label="Switch camera" hidden>
+          <svg><use href="#i-flip"/></svg>
+        </button>
+      </div>
+
+      <div class="controls">
+        <!-- Capture row -->
+        <div id="captureRow" class="capture-row">
+          <label class="side-btn" aria-label="Choose from gallery">
+            <svg><use href="#i-image"/></svg>
+            <span>Gallery</span>
+            <input id="galleryInput" type="file" accept="image/*" hidden />
+          </label>
+
+          <button type="button" id="shutterBtn" class="shutter" aria-label="Take photo">
+            <span></span>
+          </button>
+
+          <label class="side-btn" aria-label="Use phone camera app">
+            <svg><use href="#i-camera"/></svg>
+            <span>Photo</span>
+            <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden />
+          </label>
+        </div>
+
+        <!-- After a photo is chosen -->
+        <div id="previewRow" class="preview-row" hidden>
+          <button type="button" id="retakeBtn" class="btn-outline">Retake</button>
+          <button type="button" id="analyzeBtn" class="btn-primary">Analyze</button>
+        </div>
+
+        <p id="inspectError" class="inline-error" hidden></p>
+
+        <div class="tips">
+          <h3>Tips for best results</h3>
+          <p>•&nbsp; Good lighting</p>
+          <p>•&nbsp; Clear focus</p>
+          <p>•&nbsp; Single box in frame</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESULT ================= -->
+    <section id="view-result" class="view result" hidden>
+      <div class="topbar">
+        <a href="#history" class="icon-btn" id="resultBack" aria-label="Back"><svg><use href="#i-back"/></svg></a>
+        <h1>Inspection Result</h1>
+        <span class="icon-btn"></span>
+      </div>
+
+      <div class="result-card">
+        <span id="resultIcon" class="result-icon"><svg><use href="#i-check"/></svg></span>
+        <h2 id="resultTitle" class="result-title">GOOD BOX</h2>
+        <p class="label">Confidence</p>
+        <p id="resultConfidence" class="result-conf">–</p>
+        <p id="resultId" class="result-id"></p>
+        <p id="resultDate" class="muted"></p>
+
+        <div class="result-image">
+          <img id="resultImage" alt="Inspection photo" hidden />
+          <div id="resultNoImage" class="no-image"><svg><use href="#i-image"/></svg><span>Image unavailable</span></div>
+        </div>
+
+        <h3 class="details-title">Details</h3>
+        <div class="detail-row"><span>Result</span><strong id="detailResult">–</strong></div>
+        <div class="detail-row"><span>Confidence</span><strong id="detailConfidence">–</strong></div>
+
+        <div class="result-actions">
+          <a href="#history" class="btn-outline">View History</a>
+          <a href="#home" class="btn-primary">Done</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section id="view-stats" class="view dark" data-tab="stats" hidden>
+      <h1 class="page-title">Statistics</h1>
+
+      <div class="period">This Week</div>
+
+      <div class="stats-row dark-cards">
+        <div class="stat"><span class="stat-icon purple"><svg><use href="#i-cube"/></svg></span><strong id="weekTotal">0</strong><small>Inspected</small></div>
+        <div class="stat"><span class="stat-icon green"><svg><use href="#i-check"/></svg></span><strong id="weekGood">0</strong><small id="weekGoodPct">Good 0.0%</small></div>
+        <div class="stat"><span class="stat-icon red"><svg><use href="#i-warning"/></svg></span><strong id="weekDamaged">0</strong><small id="weekDamagedPct">Damaged 0.0%</small></div>
+      </div>
+
+      <h2 class="dark-section">Daily Trend</h2>
+      <div class="chart">
+        <div class="legend">
+          <span><i class="dot green-bg"></i>Good</span>
+          <span><i class="dot red-bg"></i>Damaged</span>
+        </div>
+        <div id="bars" class="bars"></div>
+      </div>
+
+      <h2 class="dark-section">Result Breakdown</h2>
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="breakdown-label"><span class="stat-icon green sm"><svg><use href="#i-check"/></svg></span>Good</span>
+          <span class="breakdown-value"><strong id="bdGood" class="green-text">0</strong><small id="bdGoodPct">0.0%</small></span>
+        </div>
+        <div class="divider"></div>
+        <div class="breakdown-row">
+          <span class="breakdown-label"><span class="stat-icon red sm"><svg><use href="#i-warning"/></svg></span>Damaged</span>
+          <span class="breakdown-value"><strong id="bdDamaged" class="red-text">0</strong><small id="bdDamagedPct">0.0%</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROFILE ================= -->
+    <section id="view-profile" class="view dark profile" data-tab="profile" hidden>
+      <span class="avatar" id="profileAvatar">OP</span>
+      <h1 id="profileName">Operator</h1>
+      <p id="profileEmail" class="email"></p>
+      <p class="role">Quality Control</p>
+
+      <div class="profile-card">
+        <p>Mobile inspection account</p>
+        <p>Camera permissions</p>
+        <p>Notification settings</p>
+      </div>
+
+      <button type="button" id="signOutBtn" class="btn-primary wide">
+        <svg><use href="#i-logout"/></svg> Sign Out
+      </button>
+    </section>
+
+    <!-- ================= TAB BAR ================= -->
+    <nav class="tabbar" id="tabbar">
+      <a href="#home" data-tab="home"><svg><use href="#i-home"/></svg><span>Home</span></a>
+      <a href="#history" data-tab="history"><svg><use href="#i-time"/></svg><span>History</span></a>
+      <a href="#inspect" data-tab="inspect" class="tab-inspect" aria-label="Inspect"><svg><use href="#i-camera"/></svg></a>
+      <a href="#stats" data-tab="stats"><svg><use href="#i-stats"/></svg><span>Stats</span></a>
+      <a href="#profile" data-tab="profile"><svg><use href="#i-person"/></svg><span>Profile</span></a>
+    </nav>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

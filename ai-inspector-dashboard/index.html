@@ -15,11 +15,11 @@
       </div>
 
       <nav>
-        <a class="nav-item active" href="#">⌂ <span>Dashboard</span></a>
-        <a class="nav-item" href="#">▣ <span>Inspections</span></a>
-        <a class="nav-item" href="#">⌁ <span>Analytics</span></a>
-        <a class="nav-item" href="#">⚠ <span>Alerts</span></a>
-        <a class="nav-item" href="#">⚙ <span>Settings</span></a>
+        <a class="nav-item active" href="#dashboard" data-view="dashboard">⌂ <span>Dashboard</span></a>
+        <a class="nav-item" href="#inspections" data-view="inspections">▣ <span>Inspections</span></a>
+        <a class="nav-item" href="#analytics" data-view="analytics">⌁ <span>Analytics</span></a>
+        <a class="nav-item" href="#alerts" data-view="alerts">⚠ <span>Alerts</span><b id="alertBadge" class="nav-badge" hidden>0</b></a>
+        <a class="nav-item" href="#settings" data-view="settings">⚙ <span>Settings</span></a>
       </nav>
 
       <div class="sidebar-footer">
@@ -35,8 +35,8 @@
     <main class="main-content">
       <header class="topbar">
         <div>
-          <h1>Dashboard</h1>
-          <p>Real-time overview of inspection activities</p>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Real-time overview of inspection activities</p>
         </div>
 
         <div class="live-status">
@@ -45,6 +45,8 @@
         </div>
       </header>
 
+      <!-- ===== Dashboard view ===== -->
+      <div id="dashboardView" class="view-page">
       <section class="stats-grid">
         <article class="stat-card">
           <div class="stat-icon blue">⬡</div>
@@ -99,6 +101,7 @@
         <div class="panel-header">
           <div>
             <h2>Recent Inspections</h2>
+            <p><a class="view-all" href="#inspections">View all inspections →</a></p>
           </div>
           <span class="badge">LIVE</span>
         </div>
@@ -122,8 +125,188 @@
           </div>
         </div>
       </section>
+      </div>
+
+      <!-- ===== Inspections view ===== -->
+      <div id="inspectionsView" class="view-page" hidden>
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>All Inspections</h2>
+              <p id="inspectionsSummary">Loading inspections…</p>
+            </div>
+            <button id="refreshBtn" class="refresh-btn" type="button">↻ Refresh</button>
+          </div>
+
+          <div class="toolbar">
+            <input id="searchInput" class="search-input" type="search"
+                   placeholder="Search by inspection ID…" autocomplete="off" />
+
+            <div class="filter-pills" role="group" aria-label="Filter by result">
+              <button type="button" class="pill active" data-filter="all">All</button>
+              <button type="button" class="pill" data-filter="ok">OK</button>
+              <button type="button" class="pill" data-filter="damaged">Damaged</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>Result</th>
+                  <th>Confidence</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="allInspectionRows"></tbody>
+            </table>
+
+            <div id="allEmptyState" class="empty-state">
+              Loading inspections…
+            </div>
+          </div>
+
+          <div class="load-more-wrap">
+            <button id="loadMoreBtn" class="refresh-btn" type="button" hidden>Load more</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===== Alerts view ===== -->
+      <div id="alertsView" class="view-page" hidden>
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Damage Alerts</h2>
+              <p id="alertsSummary">Loading alerts…</p>
+            </div>
+            <div class="alert-actions">
+              <button id="notifyBtn" class="refresh-btn" type="button" hidden>🔔 Enable pop-ups</button>
+              <button id="markReadBtn" class="refresh-btn" type="button">✓ Mark all as read</button>
+            </div>
+          </div>
+
+          <div id="alertList" class="alert-list">
+            <div class="empty-state">Loading alerts…</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===== Analytics view ===== -->
+      <div id="analyticsView" class="view-page" hidden>
+        <div class="analytics-toolbar">
+          <div class="filter-pills" role="group" aria-label="Date range">
+            <button type="button" class="pill range-pill active" data-days="7">7 days</button>
+            <button type="button" class="pill range-pill" data-days="14">14 days</button>
+            <button type="button" class="pill range-pill" data-days="30">30 days</button>
+          </div>
+          <span id="analyticsRangeLabel" class="range-label"></span>
+        </div>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon blue">⬡</div>
+            <div><span>Inspections</span><strong id="anTotal">0</strong>
+              <small id="anPerDay" class="stat-percent total-percent">0 per day</small></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon red">!</div>
+            <div><span>Damage rate</span><strong id="anRate">0%</strong>
+              <small id="anDamaged" class="stat-percent damaged-percent">0 damaged</small></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon purple">◆</div>
+            <div><span>Avg. confidence</span><strong id="anConf">0%</strong>
+              <small id="anLowConf" class="stat-percent total-percent">0 below 70%</small></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon green">◷</div>
+            <div><span>Busiest hour</span><strong id="anPeak">–</strong>
+              <small id="anPeakCount" class="stat-percent total-percent">no data</small></div>
+          </article>
+        </section>
+
+        <div class="analytics-grid">
+          <section class="panel">
+            <div class="panel-header"><div><h2>Inspections per day</h2><p>OK vs. damaged</p></div></div>
+            <div class="chart-wrap small"><canvas id="anDailyChart" aria-label="Inspections per day, OK versus damaged"></canvas></div>
+            <details class="data-table">
+              <summary>Show data table</summary>
+              <div class="table-wrap"><table><thead><tr><th>Day</th><th>OK</th><th>Damaged</th><th>Damage rate</th></tr></thead>
+                <tbody id="anDailyTable"></tbody></table></div>
+            </details>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header"><div><h2>Damage rate</h2><p>Share of each day's inspections flagged damaged</p></div></div>
+            <div class="chart-wrap small"><canvas id="anRateChart" aria-label="Daily damage rate"></canvas></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header"><div><h2>Model confidence</h2><p>How sure the model was, by inspection</p></div></div>
+            <div class="chart-wrap small"><canvas id="anConfChart" aria-label="Confidence distribution"></canvas></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header"><div><h2>Activity by hour</h2><p>When inspections happen (your local time)</p></div></div>
+            <div class="chart-wrap small"><canvas id="anHourChart" aria-label="Inspections by hour of day"></canvas></div>
+          </section>
+        </div>
+
+        <section class="panel" id="anUsersPanel" hidden>
+          <div class="panel-header"><div><h2>Top inspectors</h2><p>Who submitted the most inspections</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>User</th><th>Inspections</th><th>Damaged</th><th>Damage rate</th></tr></thead>
+            <tbody id="anUsersTable"></tbody></table></div>
+        </section>
+      </div>
+
+      <!-- ===== Settings view ===== -->
+      <div id="settingsView" class="view-page" hidden>
+        <div class="settings-grid">
+          <section class="panel settings-card">
+            <div class="panel-header"><div><h2>Account</h2><p>Signed in with Amazon Cognito</p></div></div>
+            <div class="account-row">
+              <div id="settingsAvatar" class="avatar large">MW</div>
+              <div>
+                <strong id="settingsName">–</strong>
+                <span id="settingsEmail" class="settings-muted">–</span>
+                <span class="settings-muted">QC Manager</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel settings-card">
+            <div class="panel-header"><div><h2>Notifications</h2><p>How damage alerts reach you</p></div></div>
+            <div class="setting-row">
+              <div><strong>In-dashboard pop-ups</strong><span class="settings-muted">Shown when a damaged box arrives</span></div>
+              <span class="status-chip on">On</span>
+            </div>
+            <div class="setting-row">
+              <div><strong>Desktop notifications</strong><span id="desktopNotifyText" class="settings-muted">–</span></div>
+              <button id="settingsNotifyBtn" class="refresh-btn" type="button">Enable</button>
+            </div>
+            <div class="setting-row">
+              <div><strong>Unread alerts</strong><span id="settingsUnread" class="settings-muted">–</span></div>
+              <button id="settingsMarkRead" class="refresh-btn" type="button">Mark all read</button>
+            </div>
+          </section>
+
+          <section class="panel settings-card">
+            <div class="panel-header"><div><h2>Sign out</h2><p>End your session on this dashboard</p></div></div>
+            <div class="setting-row">
+              <div><strong>Sign out of AI Inspector</strong><span class="settings-muted">Also signs this account out on other devices</span></div>
+              <button id="settingsSignOut" class="danger-btn" type="button">Sign out</button>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
   </div>
+
+  <!-- Live damage pop-ups -->
+  <div id="toastStack" class="toast-stack" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="auth.js"></script>

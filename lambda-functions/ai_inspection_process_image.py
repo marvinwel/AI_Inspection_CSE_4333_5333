@@ -5,6 +5,7 @@ import uuid
 import urllib.request
 from datetime import datetime, timezone
 from decimal import Decimal
+import os
 
 
 # --------------------------------------------------
@@ -23,7 +24,8 @@ table = dynamodb.Table("ai-inspector-inspections")
 # --------------------------------------------------
 
 # CHANGE THIS to EC2 public IP.
-MODEL_ENDPOINT = "http://54.221.75.52:8080/invocations"
+model_url = os.environ["MODEL_URL"]
+MODEL_ENDPOINT = f"http://{model_url}:8080/invocations"
 
 BUCKET_NAME = "ai-inspector-images-797260139360-us-east-1"
 

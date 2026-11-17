@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · AI Inspector</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <main class="login-page">
+    <img class="login-logo" src="logo.svg" alt="AI Inspector" />
+
+    <section class="login-card">
+      <!-- Tabs -->
+      <div class="tabs" id="tabs" role="tablist">
+        <button type="button" class="tab active" role="tab" data-tab="signInForm" aria-selected="true">Sign in</button>
+        <button type="button" class="tab" role="tab" data-tab="signUpForm" aria-selected="false">Sign up</button>
+      </div>
+
+      <!-- Sign in -->
+      <form id="signInForm" class="view" novalidate>
+        <h1>Sign in</h1>
+        <p class="sub">Sign in to start inspecting.</p>
+
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="username"
+               placeholder="name@example.com" required />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password"
+               placeholder="••••••••" required />
+
+        <p class="message" role="alert"></p>
+        <button type="submit" class="btn">Sign in</button>
+        <p class="center"><a href="#" data-go="forgotForm">Forgot your password?</a></p>
+      </form>
+
+      <!-- Sign up -->
+      <form id="signUpForm" class="view" hidden novalidate>
+        <h1>Create account</h1>
+        <p class="sub">We will email you a code to verify it.</p>
+
+        <label for="signUpName">Full name</label>
+        <input id="signUpName" type="text" autocomplete="name" placeholder="Jane Doe" required />
+
+        <label for="signUpEmail">Email address</label>
+        <input id="signUpEmail" type="email" autocomplete="username"
+               placeholder="name@example.com" required />
+
+        <label for="signUpPassword">Password</label>
+        <input id="signUpPassword" type="password" autocomplete="new-password" required />
+
+        <label for="signUpPassword2">Confirm password</label>
+        <input id="signUpPassword2" type="password" autocomplete="new-password" required />
+
+        <p class="hint">At least 8 characters with upper and lower case letters, a number and a symbol.</p>
+        <p class="message" role="alert"></p>
+        <button type="submit" class="btn">Create account</button>
+      </form>
+
+      <!-- Sign up: confirm email code -->
+      <form id="confirmForm" class="view" hidden novalidate>
+        <h1>Check your email</h1>
+        <p class="sub">Enter the verification code we sent to <strong id="confirmEmail"></strong>.</p>
+
+        <label for="confirmCode">Verification code</label>
+        <input id="confirmCode" inputmode="numeric" autocomplete="one-time-code" required />
+
+        <p class="message" role="alert"></p>
+        <button type="submit" class="btn">Verify and continue</button>
+        <p class="center">
+          <a href="#" id="resendCode">Resend code</a>
+          <span class="dot">·</span>
+          <a href="#" data-go="signInForm">Back to sign in</a>
+        </p>
+      </form>
+
+      <!-- First sign-in: choose a new password -->
+      <form id="newPasswordForm" class="view" hidden novalidate>
+        <h1>Set a new password</h1>
+        <p class="sub">This is your first sign-in. Choose a new password to continue.</p>
+
+        <label for="newPassword">New password</label>
+        <input id="newPassword" type="password" autocomplete="new-password" required />
+
+        <label for="newPassword2">Confirm new password</label>
+        <input id="newPassword2" type="password" autocomplete="new-password" required />
+
+        <p class="hint">At least 8 characters with upper and lower case letters, a number and a symbol.</p>
+        <p class="message" role="alert"></p>
+        <button type="submit" class="btn">Save and sign in</button>
+        <p class="center"><a href="#" data-go="signInForm">Back to sign in</a></p>
+      </form>
+
+      <!-- Forgot password: send code -->
+      <form id="forgotForm" class="view" hidden novalidate>
+        <h1>Reset password</h1>
+        <p class="sub">Enter your email and we'll send you a reset code.</p>
+
+        <label for="forgotEmail">Email address</label>
+        <input id="forgotEmail" type="email" autocomplete="username"
+               placeholder="name@example.com" required />
+
+        <p class="message" role="alert"></p>
+        <button type="submit" class="btn">Send code</button>
+        <p class="center"><a href="#" data-go="signInForm">Back to sign in</a></p>
+      </form>
+
+      <!-- Forgot password: enter code + new password -->
+      <form id="resetForm" class="view" hidden novalidate>
+        <h1>Enter reset code</h1>
+        <p class="sub">Check your email for the code we sent.</p>
+
+        <label for="resetCode">Code</label>
+        <input id="resetCode" inputmode="numeric" autocomplete="one-time-code" required />
+
+        <label for="resetPassword">New password</label>
+        <input id="resetPassword" type="password" autocomplete="new-password" required />
+
+        <p class="message" role="alert"></p>
+        <button type="submit" class="btn">Reset password</button>
+        <p class="center"><a href="#" data-go="signInForm">Back to sign in</a></p>
+      </form>
+    </section>
+
+    <p class="foot">Secured by Amazon Cognito</p>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="96" viewBox="0 0 440 96">
+  <rect x="4" y="4" width="88" height="88" rx="44" fill="#6D39E8"/>
+  <path d="M48 24 L70 36 V60 L48 72 L26 60 V36 Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M26 36 L48 48 L70 36 M48 48 V72" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+  <text x="112" y="63" font-family="Inter, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff">AI <tspan fill="#A47DFF">INSPECTOR</tspan></text>
+</svg>
